@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <body>
-<button id="myButton" onclick="prepniObrazek()">Click me</button>
+<input type="number" placeholder="cislo" id="cislo" oninput="porovnej()">
 </body>
-<img src="emoji.png" alt="Emoji" id="myImage" scale="0.5" width="100" height="100" img style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+
 <script>
-function prepniObrazek() {
-    var image = document.getElementById("myImage");
-    if (image.src.includes("emoji.png")) {
-        image.src = "new_image.png";
-    } else {
-        image.src = "emoji.png";
-    }
+function porovnej() {
+  var cislo = document.getElementById("cislo").value;
+  if (cislo > 10) {
+    alert("Číslo je větší");
+  } else if (cislo < 10) {
+    alert("Číslo je menší");
+  } else {
+    alert("Číslo je rovno 10");
+  }
 }
 </script>
