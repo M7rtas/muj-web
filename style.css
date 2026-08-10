@@ -28,3 +28,116 @@
       transform: translate(-50%, -25%);
     }
 
+    body {
+    margin: 0;
+    overflow: hidden;
+    background: #222;
+    font-family: Arial, sans-serif;
+}
+
+
+#hrac {
+    position: absolute;
+
+    width: 50px;
+    height: 50px;
+
+    background: red;
+
+    border-radius: 10px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+#coin {
+    position: absolute;
+
+    width: 50px;
+    height: 50px;
+
+    background-image: url("obrázek/coin.png");
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+#pocet-coinu {
+    position: absolute;
+
+    top: 10px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: white;
+
+    font-size: 20px;
+
+    z-index: 5;
+}
+
+
+#leaderboard {
+    position: absolute;
+
+    right: 20px;
+    top: 20px;
+
+    width: 250px;
+
+    padding: 15px;
+
+    background: #333;
+
+    color: white;
+
+    border-radius: 10px;
+
+    z-index: 10;
+}
+
+
+#leaderboard h2 {
+    margin-top: 0;
+}
+
+
+#jmeno {
+    width: 140px;
+
+    padding: 7px;
+
+    box-sizing: border-box;
+}
+
+
+#skore-tlacitko {
+    padding: 7px;
+
+    cursor: pointer;
+}
+
+
+#seznam {
+    margin-top: 15px;
+}
+
+
+.hrac-leaderboard {
+    padding: 5px 0;
+
+    border-bottom: 1px solid #555;
+}
+
+
+#stav {
+    margin-top: 10px;
+
+    font-size: 13px;
+}
