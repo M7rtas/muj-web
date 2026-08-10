@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
 
-    <title>Moje hra</title>
+    <title>Hra</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -31,7 +31,7 @@
         <div id="stav"></div>
 
         <div id="seznam">
-            Načítám...
+            Načítám....
         </div>
 
     </div>
