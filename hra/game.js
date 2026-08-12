@@ -2,52 +2,94 @@ const canvas = document.getElementById("hra");
 
 const engine = new BABYLON.Engine(canvas, true);
 
-const createScene = function () {
+const scene = new BABYLON.Scene(engine);
 
-    const scene = new BABYLON.Scene(engine);
+scene.clearColor = new BABYLON.Color4(
+    0.1,
+    0.1,
+    0.15,
+    1
+);
 
-    const camera = new BABYLON.FreeCamera(
-        "kamera",
-        new BABYLON.Vector3(0, 3, -8),
-        scene
-    );
+const kamera = new BABYLON.FreeCamera(
+    "kamera",
+    new BABYLON.Vector3(0, 5, -10),
+    scene
+);
 
-    camera.attachControl(canvas, true);
+kamera.setTarget(
+    new BABYLON.Vector3(0, 0, 0)
+);
 
-    const light = new BABYLON.HemisphericLight(
-        "svetlo",
-        new BABYLON.Vector3(0, 1, 0),
-        scene
-    );
+const svetlo = new BABYLON.HemisphericLight(
+    "svetlo",
+    new BABYLON.Vector3(0, 1, 0),
+    scene
+);
 
-    const ground = BABYLON.MeshBuilder.CreateGround(
-        "zem",
-        {
-            width: 50,
-            height: 50
-        },
-        scene
-    );
+svetlo.intensity = 1;
 
-    const player = BABYLON.MeshBuilder.CreateBox(
-        "hrac",
-        {
-            size: 1
-        },
-        scene
-    );
+const zem = BABYLON.MeshBuilder.CreateGround(
+    "zem",
+    {
+        width: 50,
+        height: 50
+    },
+    scene
+);
 
-    player.position.y = 0.5;
 
-    return scene;
-};
+// NAČTENÍ OBJEKTU
 
-const scene = createScene();
+BABYLON.SceneLoader.ImportMesh(
+    "",
+    "./",
+    "objekt.glb",
+    scene,
+
+    function (meshes) {
+
+        console.log("OBJekt načten!");
+
+        const objekt = meshes[0];
+
+        objekt.position.x = 0;
+        objekt.position.y = 0;
+        objekt.position.z = 5;
+
+        objekt.scaling = new BABYLON.Vector3(
+            1,
+            1,
+            1
+        );
+
+    },
+
+    null,
+
+    function (scene, message) {
+
+        console.error(
+            "CHYBA PŘI NAČÍTÁNÍ:",
+            message
+        );
+
+    }
+);
+
 
 engine.runRenderLoop(function () {
+
     scene.render();
+
 });
 
-window.addEventListener("resize", function () {
-    engine.resize();
-});
+
+window.addEventListener(
+    "resize",
+    function () {
+
+        engine.resize();
+
+    }
+);
